@@ -19,7 +19,7 @@ const Tform = () => {
 
 
     return(
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 p-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col bg-gray-50 rounded-lg shadow-md  mb-6 gap-3 p-4">
              <div>
                 <input
                 {...register("title", { required: "Title is required" })}

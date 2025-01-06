@@ -13,8 +13,8 @@ const EditTodo =({ todo, onSave, onCancel}) => {
     };
     return(
         <div className="flex flex-col gap-2">
-           <input type="text" value={editValue} onChange={(e) => setEditValue(e.target.value)} className="p-2 border rounded" /> 
-           <input type="datetime-local" value={editDate} onChange={(e) => setEditDate(e.target.value)} className="p-2 border rounded" />
+           <input type="text" value={editValue} onChange={(e) => setEditValue(e.target.value)} className="p-2 border rounded " /> 
+           <input type="datetime-local" value={editDate} onChange={(e) => setEditDate(e.target.value)} className="p-2 border rounded " />
             <div className="flex gap-2">
                 <button
                 onClick={handleSave}

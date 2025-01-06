@@ -28,14 +28,14 @@ const Tlist = () => {
     const sortedTodos = todos.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     return(
-        <div className="p-4 bg-gray-100 min-h-screen">
-            <h1 className="text-2xl font-bold mb-4">Your Todo List</h1>
+        <div className="p-6 bg-gray-100 min-h-screen">
+            <h1 className="text-2xl font-bold text-gray-600 mb-4">Your Todo List</h1>
 
             {sortedTodos.length > 0 ? (
                 sortedTodos.map((todo) => (
                 <div
                     key={todo.id}
-                    className="flex justify-between items-center bg-white shadow-md p-4 mb-4 rounded-lg"
+                    className="flex justify-between items-center bg-white shadow-md p-4 mb-4 rounded-lg border"
                 >
 
                     <div>
@@ -61,10 +61,10 @@ const Tlist = () => {
                         onChange={(e) => handleStatusChange(todo, e.target.value)}
                         className={`mt-2 p-2 border rounded bg-gray-50 focus:ring-2 ${
                             todo.status === "Not Done"
-                              ? "text-red-500"
+                              ? "text-red-500 bg-red-100"
                               : todo.status === "In Progress"
-                              ? "text-yellow-500"
-                              : "text-green-500"
+                              ? "text-yellow-500 bg-yellow-100"
+                              : "text-green-500 bg-green-100"
                           }`}                    >
                         <option value="Not Done">Not Done</option>
                         <option value="In Progress">In Progress</option>
