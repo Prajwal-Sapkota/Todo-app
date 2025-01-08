@@ -10,7 +10,7 @@ const Tlist = () => {
     const[modalOpen, setModelOpen]= useState(false);
     const[selectedTodo, setSelectedTodo]= useState(null);
     const[editTodo, setEditTodo]= useState(null);
-    
+    const[searchQuery,setSearchQuery]= useState("");
 
     const handleDelete = (id) => {
         setModelOpen(true);
@@ -27,15 +27,29 @@ const Tlist = () => {
     
     const sortedTodos = todos.sort((a, b) => new Date(a.date) - new Date(b.date));
 
+    const priorityColor = {
+        High:"bg-red-200 ",
+        Medium:"bg-yellow-200 ",
+        Low: "bg-green-200 ",
+    };
+    const filteredTodos = sortedTodos.filter((todo) =>
+        todo.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return(
         <div className="p-6 bg-gray-100 min-h-screen">
             <h1 className="text-2xl font-bold text-gray-600 mb-4">Your Todo List</h1>
+            <input type="text" placeholder="Search todo..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
+            className="p-3 border-2 border-blue-400 rounded-full w-full mb-4 shadow-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-transform transform hover:scale-105"
+            />
 
-            {sortedTodos.length > 0 ? (
-                sortedTodos.map((todo) => (
+            {filteredTodos.length > 0 ? (
+                filteredTodos.map((todo) => (
                 <div
                     key={todo.id}
-                    className="flex justify-between items-center bg-white shadow-md p-4 mb-4 rounded-lg border"
+                    className={`flex justify-between items-center shadow-md p-4 mb-4 rounded-lg border ${
+                        priorityColor[todo.priority]
+                    }`}
                 >
 
                     <div>
@@ -71,6 +85,7 @@ const Tlist = () => {
                         <option value="Complete">Complete</option>
                     </select>
                     </div>
+                    
                     <div className="flex gap-2">
                         {editTodo !== todo.id && (
                             <button

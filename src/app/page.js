@@ -1,6 +1,7 @@
 import Tform from "./components/Tform";
 import Tlist from "./components/Tlist";
 
+
 const Home = () => {
     return(
         <div className="min-h-screen bg-gradient-to-r from-blue-200 via-purple-500 to-pink-500 flex items-center justify-center">
