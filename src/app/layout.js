@@ -1,8 +1,10 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TodoProvider } from "./context/TodoContext";
 import Notification from "./components/Notification";
 import { ToastContainer } from "react-toastify";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +22,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       
@@ -29,6 +32,7 @@ export default function RootLayout({ children }) {
         <TodoProvider>
           <Notification/>
           <ToastContainer position="top-right" autoClose={false} closeButton={true} className={"bg-red-600 text-white font-semibold rounded-lg shadow-lg p-4 my-2"} />
+          
           {children}
         </TodoProvider>
         

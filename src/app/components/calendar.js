@@ -36,10 +36,10 @@ const CalendarView = ({ todos }) => {
     };
 
     return (
-        <div className="calendar-container">
+        <div className="calendar-container dark:bg-gray-800 dark:text-white">
             <Calendar
                 tileContent={tileContent}
-                
+                className="react-calendar dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-blue-500"
             />
         </div>
     );
