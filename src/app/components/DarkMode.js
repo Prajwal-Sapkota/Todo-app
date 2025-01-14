@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const DarkMode = () => {
   const [isDark, setIsDark] = useState(false);
-
+  
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
@@ -33,3 +33,5 @@ const DarkMode = () => {
 };
 
 export default DarkMode;
+
+
