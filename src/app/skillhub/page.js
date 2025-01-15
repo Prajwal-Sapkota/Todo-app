@@ -22,7 +22,7 @@ export default function SkillHub() {
           </div>
         </header>
   
-        <section className="relative bg-cover bg-center h-[90vh]" style={{ backgroundImage: "url('/images/hero-image.jpeg')" }}>
+        <section className="relative bg-cover bg-center h-[70vh]" style={{ backgroundImage: "url('/images/hero-image.jpeg')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
           <div className="relative container mx-auto h-full flex flex-col justify-center items-center text-center text-white">
             <h1 className="text-4xl md:text-6xl font-bold">Learn. Grow. Succeed.</h1>
@@ -48,6 +48,78 @@ export default function SkillHub() {
                       Learn More
                     </button>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-800 text-center">Popular Course Packages</h2>
+            <p className="mt-4 text-gray-600 text-center">
+                Take the next step in your career with our expert-curated courses.
+            </p>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                {[
+                {
+                    name: "Full-Stack Web Development",
+                    image: "/images/web.jpeg",
+                    price: "$499",
+                    duration: "12 Weeks",
+                    description: "Master both front-end and back-end development in this comprehensive course.",
+                },
+                {
+                    name: "Data Science Bootcamp",
+                    image: "/images/datascience.jpeg",
+                    price: "$599",
+                    duration: "10 Weeks",
+                    description: "Learn Python, machine learning, and data visualization from the ground up.",
+                },
+                {
+                    name: "UI/UX Design Essentials",
+                    image: "/images/uiux.jpeg",
+                    price: "$399",
+                    duration: "8 Weeks",
+                    description: "Become a skilled designer and create the stunning interface experiences for the users.",
+                }
+                ].map((course, index) => (
+                <div
+                    key={index}
+                    className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+                >
+                    <img
+                    src={course.image}
+                    alt={course.name}
+                    className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                    <h3 className="text-lg font-bold text-gray-800">{course.name}</h3>
+                    <p className="text-gray-600 mt-2">{course.description}</p>
+                    <div className="flex justify-between items-center mt-4">
+                        <p className="text-blue-700 font-bold">{course.price}</p>
+                        <p className="text-gray-500">{course.duration}</p>
+                    </div>
+                    <button className="mt-4 w-full px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-md">
+                        Enroll Now
+                    </button>
+                    </div>
+                </div>
+                ))}
+            </div>
+            </div>
+        </section>
+  
+
+        <section className="py-16 bg-blue-100">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold text-gray-800">What Our Students Say</h2>
+            <p className="mt-4 text-gray-600">Hear from those who have transformed their lives with us.</p>
+            <div className=" mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+              {['Emily', 'Chris', 'Jordan'].map((name, index) => (
+                <div key={index} className="bg-gray-300 p-6 rounded-lg shadow-md">
+                  <p className="text-gray-600">"SkillHub provided me with the tools and confidence I needed to succeed."</p>
+                  <h4 className="mt-4 text-gray-800 font-bold">- {name}</h4>
                 </div>
               ))}
             </div>
